@@ -23,25 +23,18 @@ else{header('location:login.php');}
         <div class="row">
         	<!-- start left colomn -->
         	<div class="col-sm-4">
-        		<button id="custombuttonset" type="submit"  class="btn btn-primary">Delete student detail</button><br>
-        		<button id="custombuttonset" type="submit"  class="btn btn-primary">update student detail</button>
+        	
         	</div>
         	<!-- end left colomn -->
-        	<!--center area -->
         	<div class="col-sm-4">
-        		<form  action="studentdelete.php" method="post">
-        		<div class="form-group">
-                 <label for="roll number">Enter the Roll-Number of student</label>
-                  <input type="number" name="student_rollnumber" class="form-control">
-                </div>
-                <div class="form-group">
-                 <label for="pwd">Enter Student Name:</label>
-                  <input type="text" name="student_name" class="form-control">
-                </div>
-                 <button type="submit" name="check_flag" class="btn btn-primary">Search</button>
-                </form>
+        		 <form action="#" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                     <label for="roll number">Student ID/UID:</label>
+                     <input type='number' name="uid" class="form-control" required="required">
+                    </div>
+                    <button type="submit" name="checkflag" class="btn btn-primary">Delete student detail</button>
+                  </form>
         	</div>
-        	<!--end ceter area -->
         	<!-- left colomn -->
         	<div class="col-sm-4">
         		<a href="logout.php"><button style="margin-top: 20px;margin-left: 200px;" type="button" class="btn btn-danger">Logout</button></a>
@@ -54,3 +47,28 @@ else{header('location:login.php');}
 
 </body>
 </html>
+
+<?php
+if (isset($_POST['checkflag'])) {
+    
+    $uid=$_POST['uid'];
+    include('dbfunctions.php');
+    $result=DeleteStudent($uid);
+    if($result==True){
+        ?><script type="text/javascript">
+            window.alert('Data delelted successfully');
+            window.open('admin.php')
+        </script>
+        <?php
+    }
+    else
+    {
+        ?>
+        <script type="text/javascript">
+            alert('something went wrong or enter true uid');
+            window.open('admin.php');
+        </script>
+        <?php
+    }
+}
+?>

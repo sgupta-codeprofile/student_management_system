@@ -6,9 +6,7 @@
     <li class="nav-item">
       <a class="nav-link" href="login.php">Admin-pannel</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="commingsoon.php">Student</a>
-    </li>
+
  
   </ul>
 </nav>

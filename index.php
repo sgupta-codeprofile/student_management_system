@@ -16,7 +16,7 @@
        			<!-- start form here -->
        			<form action="search_student.php" method="post" enctype="" >
                    <div class="form-group">
-                     <label for="sel1">Select list:</label>
+                     <label for="sel1">Select Class:</label>
                      <select name="standard" class="form-control">
                      <option value="1">1</option>
                      <option value="2">2</option>
@@ -24,11 +24,8 @@
                      <option value="4">4</option>
                      </select>
                    </div>
-                   <div class="form-group">
-                   <label for="rollnumber">Enter Rollnumber:</label>
-                   <input type="number" name="rollnumber" class="form-control" required="required">
-                   </div>
-                   <button type="submit" class="btn btn-primary" name="submit">Search</button>
+                   
+                   <button type="submit" class="btn btn-primary" name="submit">Show Student</button>
                  </form>
                  <!-- end form here -->
        		</div>
