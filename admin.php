@@ -22,19 +22,19 @@ else{header('location:login.php');}
         		 <form action="admin.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                      <label for="roll number">Roll number:</label>
-                     <input type='number' name="roll_number" class="form-control">
+                     <input type='number' name="roll_number" class="form-control" required="required">
                     </div>
                     <div class="form-group">
                      <label for="name">Studet name:</label>
-                     <input type="text" name='student_name' class="form-control">
+                     <input type="text" name='student_name' class="form-control" required="required">
                      </div>
                      <div class="form-group">
                      <label for="city">City</label>
-                     <input type="text" name="city" class="form-control" >
+                     <input type="text" name="city" class="form-control" required="required" >
                     </div>
                     <div class="form-group">
                      <label for="parentscontact">Parents contact</label>
-                     <input type="text" name="parent_contact" class="form-control" >
+                     <input type="text" name="parent_contact" class="form-control" required="required" >
                     </div>
                     <div class="form-group">
                      <label for="sel1">Select standard:</label>
@@ -47,15 +47,20 @@ else{header('location:login.php');}
                    </div>
                    <div class="form-group">
                    	  <label for="student_image">Upload student image</label>
-                   	  <input type="file" name="student_image" class="form-control">
+                   	  <input type="file" name="student_image" class="form-control" required="required">
                    </div>
 
                     <button type="submit" name="checkflag" class="btn btn-primary">Add student detail</button>
                  </form>
 
         	</div>
-        	<div class="col-sm-4"></div>
-        	
+        	<!-- left colomn -->
+        	<div class="col-sm-4">
+        		<a href="logout.php"><button style="margin-top: 20px;margin-left: 200px;" type="button" class="btn btn-danger">Logout</button></a>
+
+
+        	</div>
+        	<!-- end left colomn -->
         </div>
 	<!-- end form -->
 
@@ -76,7 +81,9 @@ $run=insertstudentdata($RollNumber,$StudentName,$StudentCity,$ParentsContact,$St
 
    if ($run == True) {
        move_uploaded_file($Temp_Image,'images/$Studet_Image_Name.png');
-   	   echo "Student Detail Successfully Entered:";
+   	   ?>
+   	   <script type="text/javascript">window.alert("Student data insert successfully")</script>
+   	   <?php
                      }
    else {echo "something wrong with query";}
 
