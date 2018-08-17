@@ -1,3 +1,7 @@
+<?php
+session_start();
+if($_SESSION['id']){header('location:admin.php');}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +59,6 @@ if ($run == True) {
     }
     else
     {
-          session_start();
           $result=mysqli_fetch_assoc($run);
           $_SESSION['id']=$result['id'];
           $_SESSION['user']=$result['username'];
