@@ -42,4 +42,22 @@ function DeleteStudent($uid)
 	}
 }
 
+function ShowStandardStudents($standard)
+{
+	global $con;
+	$query="SELECT * FROM student where standard='$standard'";
+	$run=mysqli_query($con,$query);
+	if($run==True){
+	$finalresult=array();
+	while ($result=mysqli_fetch_assoc($run)) {
+		   $finalresult[]=$result;
+	}
+	
+		return $finalresult;
+	}
+	else {
+		return False;
+	}
+}
+
 ?>

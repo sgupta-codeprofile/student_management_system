@@ -90,7 +90,7 @@ include('dbfunctions.php');
 $run=insertstudentdata($RollNumber,$StudentName,$StudentCity,$ParentsContact,$StudetStandard,$Studet_Image_Name);
 
    if ($run == True) {
-       move_uploaded_file($Temp_Image,'images/$Studet_Image_Name.png');
+       move_uploaded_file($Temp_Image,"images/$Studet_Image_Name");
    	   ?>
    	   <script type="text/javascript">window.alert("Student data insert successfully")</script>
    	   <?php
