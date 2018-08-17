@@ -22,7 +22,7 @@ else{header('location:login.php');}
         		 <form action="admin.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                      <label for="roll number">Roll number:</label>
-                     <input type='number' class="form-control">
+                     <input type='number' name="roll_number" class="form-control">
                     </div>
                     <div class="form-group">
                      <label for="name">Studet name:</label>
@@ -50,7 +50,7 @@ else{header('location:login.php');}
                    	  <input type="file" name="student_image" class="form-control">
                    </div>
 
-                    <button type="submit" class="btn btn-primary">Add student detail</button>
+                    <button type="submit" name="checkflag" class="btn btn-primary">Add student detail</button>
                  </form>
 
         	</div>
@@ -62,6 +62,28 @@ else{header('location:login.php');}
 </body>
 </html>
 <?php
-#code;
+if (isset($_POST['checkflag'])) {
+
+$RollNumber=$_POST['roll_number'];
+$StudentName=$_POST['student_name'];
+$StudentCity=$_POST['city'];
+$ParentsContact=$_POST['parent_contact'];
+$StudetStandard=$_POST['standard'];
+$Studet_Image_Name=$_FILES['student_image']['name'];  //for image
+$Temp_Image=$_FILES['student_image']['tmp_name']; //for temp image
+include('dbcon.php');  
+  $query="INSERT INTO `student`(`id`, `roll_number`, `name`, `city`, `parents_contact`, `standard`, `image`)     VALUES (NULL,'$RollNumber','$StudentName','$StudentCity','$ParentsContact','$StudetStandard','$Studet_Image_Name')";
+  $run=mysqli_query($con,$query);
+
+   if ($run == True) {
+       move_uploaded_file($Temp_Image,'images/$Studet_Image_Name.png');
+   	   echo "Student Detail Successfully Entered:";
+                     }
+   else {
+   	   echo "something wrong with query";
+        }
+
+}
+
 ?>
 
