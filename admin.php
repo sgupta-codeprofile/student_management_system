@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['user']){echo "yes session variable found";}
+if($_SESSION['user']){}
 else{header('location:login.php');}
 ?>
 <!DOCTYPE html>
@@ -70,18 +70,15 @@ $StudentCity=$_POST['city'];
 $ParentsContact=$_POST['parent_contact'];
 $StudetStandard=$_POST['standard'];
 $Studet_Image_Name=$_FILES['student_image']['name'];  //for image
-$Temp_Image=$_FILES['student_image']['tmp_name']; //for temp image
-include('dbcon.php');  
-  $query="INSERT INTO `student`(`id`, `roll_number`, `name`, `city`, `parents_contact`, `standard`, `image`)     VALUES (NULL,'$RollNumber','$StudentName','$StudentCity','$ParentsContact','$StudetStandard','$Studet_Image_Name')";
-  $run=mysqli_query($con,$query);
+$Temp_Image=$_FILES['student_image']['tmp_name']; //for temp image  
+include('dbfunctions.php');
+$run=insertstudentdata($RollNumber,$StudentName,$StudentCity,$ParentsContact,$StudetStandard,$Studet_Image_Name);
 
    if ($run == True) {
        move_uploaded_file($Temp_Image,'images/$Studet_Image_Name.png');
    	   echo "Student Detail Successfully Entered:";
                      }
-   else {
-   	   echo "something wrong with query";
-        }
+   else {echo "something wrong with query";}
 
 }
 
