@@ -34,3 +34,36 @@
 </body>
 </html>
 
+<?php 
+if (isset($_POST['login'])) {
+ 
+
+include ('dbcon.php');
+$username=$_POST['username'];
+$pass=$_POST['pass'];
+$query="SELECT * FROM admin where username='$username' and password='$pass'";
+$run=mysqli_query($con,$query);
+if ($run == True) {
+  $nrow=mysqli_num_rows($run);
+    if ($nrow<1) {
+             ?>
+             <script type="text/javascript">
+               window.alert("user does not exist:");
+               window.open('login.php');
+             </script>
+             <?php
+    }
+    else
+    {
+          session_start();
+          $result=mysqli_fetch_assoc($run);
+          $_SESSION['id']=$result['id'];
+          $_SESSION['user']=$result['username'];
+          header('location:admin.php');
+    }
+}
+else
+{echo "<h2>Something wrong with query: </h2>";}
+
+}
+?>
