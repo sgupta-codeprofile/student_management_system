@@ -25,7 +25,7 @@ else{header('location:login.php');}
         	<div class="col-sm-4">
         		<a href="studentshow.php"><button id="custombuttonset" type="submit" name="checkflag" class="btn btn-primary">Show all student</button></a><br>
         		<a href="studentdelete.php"><button id="custombuttonset" type="submit" name="checkflag" class="btn btn-primary">Delete student R</button></a><br>
-        		<button id="custombuttonset" type="submit" name="checkflag" class="btn btn-primary">update student detail</button>
+        		<a href="updatestudent.php"><button id="custombuttonset" type="submit" name="checkflag" class="btn btn-primary">update student detail</button></a>
         	</div>
         	<!-- end left colomn -->
         	<div class="col-sm-4">
