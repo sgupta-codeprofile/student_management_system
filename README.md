@@ -16,6 +16,7 @@ database use- mySql
 suitable software - Xampp
 
 --->import database from import_database folder which is inside the root directory.
+--->poject required Internet connection.*
 
 _____________________________________
 # How to run this application
