@@ -8,6 +8,10 @@ else{header('location:login.php');}
 <head>
 	<title>Admin pannel</title>
 	<?php include_once('css/bootstrapelib.php'); ?>
+	<style type="text/css">
+			#custombuttonset{margin-top:20px;margin-left: 100px;}
+	</style>
+
 </head>
 <body>
 	<div class="row">
@@ -17,7 +21,12 @@ else{header('location:login.php');}
 	</div>
 	<!-- start form -->
         <div class="row">
-        	<div class="col-sm-4"></div>
+        	<!-- start left colomn -->
+        	<div class="col-sm-4">
+        		<a href="studentdelete.php"><button id="custombuttonset" type="submit" name="checkflag" class="btn btn-primary">Delete student detail</button></a><br>
+        		<button id="custombuttonset" type="submit" name="checkflag" class="btn btn-primary">update student detail</button>
+        	</div>
+        	<!-- end left colomn -->
         	<div class="col-sm-4">
         		 <form action="admin.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
